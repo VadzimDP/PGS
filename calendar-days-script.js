@@ -120,7 +120,7 @@
     });
   });
 
-  // Calendar initialization
+  // Calendar initialization / date updated
   const initializeCalendarDays = () => {
     const startDate = new Date('2025-02-01');
     const currentDate = new Date();
