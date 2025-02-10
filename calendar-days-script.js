@@ -1,12 +1,12 @@
 (function () {
     // Constants
     const PRIMARY_IMAGE_CLASS = 'background-image';
-    const PRIMARY_IMAGE_SRC = 'https://test-alevcasino.egamings.com/content/wp-content/uploads/2025/02/light1-02.png';
+    const PRIMARY_IMAGE_SRC = 'https://alev-wordpress-prod.s3.amazonaws.com/uploads/2025/02/light1-02.png';
     const PRIMARY_WIDTH = 320;
     const PRIMARY_HEIGHT = 320;
   
     const SECONDARY_IMAGE_CLASS = 'background-image2';
-    const SECONDARY_IMAGE_SRC = 'https://test-alevcasino.egamings.com/content/wp-content/uploads/2025/02/light2-02.png';
+    const SECONDARY_IMAGE_SRC = 'https://alev-wordpress-prod.s3.amazonaws.com/uploads/2025/02/light2-02.png';
     const SECONDARY_WIDTH = 105;
     const SECONDARY_HEIGHT = 105;
   
@@ -122,7 +122,7 @@
   
     // Calendar initialization
     const initializeCalendarDays = () => {
-      const startDate = new Date('2025-02-01');
+      const startDate = new Date('2025-02-14');
       const currentDate = new Date();
       // const currentDate = new Date('2025-03-12T00:00:00Z');
       const timeDiff = currentDate - startDate;
