@@ -1,0 +1,542 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    height: 100%;
+    min-height: 100vh;
+}
+.container_relative{
+    position: relative;
+    min-height: 100vh;
+}
+.page_wrap {
+    font-family: 'Switzer', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    padding-top: 40px;
+    color: #fff;
+    height: 100%;
+    overflow-x: auto;
+    width: 100%;
+}
+.tabs-wrap {
+    position: relative;
+    overflow-x: auto;
+    /* Добавляем горизонтальный скролл */
+    white-space: nowrap;
+    /* Запрещаем перенос текста */
+    scroll-behavior: smooth;
+}
+.tabs-wrap::-webkit-scrollbar {
+    display: none; /* Убираем скроллбар */
+}
+.page_btn {
+    font-family: 'Switzer', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 800;
+    font-style: italic;
+    height: 40px;
+    position: relative;
+    text-transform: uppercase;
+    text-decoration: none;
+    filter: drop-shadow(0 4px 14px rgba(99, 0, 0, 0.75));
+}
+.page_btn span {
+    position: relative;
+    z-index: 1;
+}
+.page_btn:before {
+    content: '';
+    transform: skew(-7deg, 0);
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(88deg, #b61945 0%, #ff231f 50.52%, #edbe77 100%);
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 2px;
+}
+.page_btn:hover {
+    opacity: 0.9;
+    text-decoration: none;
+}
+.tabs {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 32px;
+    /* Расстояние между табами */
+    min-width: max-content;
+    margin-bottom: 38px;
+}
+.tabs::before {
+    content: '';
+    position: absolute;
+    bottom: -18px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.1); /* Серая линия */
+    z-index: 0; /* Помещаем под underline */
+}
+.tab {
+    padding: 5px 0;
+    position: relative;
+    font-size: 28px;
+    line-height: 32px;
+    font-style: italic;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.6);
+    /* Цвет текста неактивных табов */
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.tab.active span {
+    color: white;
+    display: inline-block; /* Делаем span блочным */
+    position: relative; /* Для привязки underline */
+    /* Цвет активного таба */
+}
+.tab:not(:last-child)::after {
+    content: '';
+    height: 22px;
+    width: 0;
+    border-right: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    /* Разделитель между табами */
+    margin-left: 32px;
+}
+.tab svg {
+    margin-bottom: 5px;
+    margin-right: 8px;
+}
+.underline {
+    display: none;
+}
+.active .underline {
+    position: absolute;
+    bottom: -18px;
+    /* Расстояние до текста */
+    left: 0;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    width: calc(100% - 28px - 2px);
+    height: 4px;
+    background: linear-gradient(to right, rgba(182, 25, 69, 1), rgba(255, 35, 31, 1), rgba(237, 190, 119, 1));
+    /* Градиентное подчёркивание */
+    display: none;
+    z-index: 1;
+}
+.tab.active .underline {
+    display: block;
+}
+.tab:last-child.active .underline {
+    width: 100%; /* Новая ширина для последнего элемента */
+}
+.tab_container {
+    display: none;
+}
+.tab_container.active {
+    display: block;
+}
+.tab_container .banner {
+    border-radius: 20px;
+    min-height: 300px;
+    position: relative;
+    padding: 20px 0 28px 40px;
+    overflow: hidden;
+    background-size: cover;
+}
+.tab_container:nth-child(2) .banner {
+    background: url('https://alev-wordpress-prod.s3.amazonaws.com/uploads/2025/02/cashback_banner_daily.jpg') center no-repeat;
+}
+.tab_container:nth-child(3) .banner {
+    background: url('https://alev-wordpress-prod.s3.amazonaws.com/uploads/2025/02/cashback_banner_weekly.jpg') center no-repeat;
+}
+.tab_container:nth-child(4) .banner {
+    background: url('https://alev-wordpress-prod.s3.amazonaws.com/uploads/2025/02/cashback_banner_monthly.jpg') center no-repeat;
+}
+.banner .banner_text_col {
+    position: relative;
+    font-weight: 700;
+    z-index: 1;
+}
+.banner-pretitle {
+    color: #949494;
+    font-size: 30px;
+    font-style: italic;
+    line-height: 40px;
+    margin-bottom: 2px;
+}
+.banner-hero_title {
+    font-size: 80px;
+    line-height: 96px;
+    margin-bottom: 2px;
+}
+.banner-subtitle {
+    font-style: italic;
+    font-size: 40px;
+    line-height: 53px;
+    margin-bottom: 24px;
+}
+.banner .page_btn {
+    max-width: 313px;
+}
+.banner .banner_img {
+    position: absolute;
+    bottom: 0;
+}
+.tab_container:nth-child(2) .banner .banner_img {
+    bottom: -70px;
+    transform: translateX(28%);
+    right: 28%;
+}
+.tab_container:nth-child(3) .banner .banner_img {
+    top: -34px;
+    transform: translateX(27%);
+    right: 27%;
+}
+.tab_container:nth-child(4) .banner .banner_img {
+    bottom: -65px;
+    transform: translateX(30%);
+    right: 30%;
+}
+.banner .banner_lvl_img {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+}
+.type_info {
+    position: relative;
+    margin: 24px 0;
+    background-color: rgba(255,255,255, 0.08);
+    border-radius: 8px;
+}
+.type_info::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px;
+    padding: 1px;
+    background: linear-gradient(90deg, #b61945, #ff231f, #edbe77);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    z-index: -1;
+}
+.type_info .type_info_desc {
+    padding: 12px 24px;
+    font-size: 22px;
+    line-height: 26px;
+    font-weight: 700;
+}
+.cards_container {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 10px;
+}
+.cards_container.weekly{
+    grid-template-columns: repeat(4, 1fr);
+}
+.cards_container.monthly{
+    grid-template-columns: repeat(4, 1fr);
+}
+.card {
+    position: relative;
+    border-radius: 12px;
+    padding: 12px;
+    z-index: 1; /* Чтобы контент оставался над псевдоэлементом */
+    overflow: hidden; /* Для правильного обрезания углов */
+    text-align: center;
+}
+.card:nth-child(1) {
+    background-color: rgba(106, 24, 0, 0.1);
+}
+.card:nth-child(2) {
+    background-color: rgba(106, 24, 0, 0.2);
+}
+.card:nth-child(3) {
+    background-color: rgba(106, 24, 0, 0.3);
+}
+.card:nth-child(4) {
+    background-color: rgba(106, 24, 0, 0.4);
+}
+.card:nth-child(5) {
+    background-color: rgba(106, 24, 0, 0.6)
+}
+.card:nth-child(6) {
+    background-color: rgba(106, 24, 0, 0.6);
+}
+.card:nth-child(7) {
+    background-color: rgba(106, 24, 0, 0.7);
+}
+.card:nth-child(8) {
+    background-color: rgba(106, 24, 0, 0.8);
+}
+.cards_container.weekly .card:nth-child(1) {
+    background-color: rgba(75, 0, 32, 0.2);
+}
+.cards_container.weekly .card:nth-child(2) {
+    background-color: rgba(75, 0, 32, 0.4);
+}
+.cards_container.weekly .card:nth-child(3) {
+    background-color: rgba(75, 0, 32, 0.6);
+}
+.cards_container.weekly .card:nth-child(4) {
+    background-color: rgba(75, 0, 32, 1.0);
+}
+.cards_container.monthly .card:nth-child(1) {
+    background-color: rgba(0, 13, 41, 0.4);
+}
+.cards_container.monthly .card:nth-child(2) {
+    background-color: rgba(0, 13, 41, 0.6);
+}
+.cards_container.monthly .card:nth-child(3) {
+    background-color: rgba(0, 13, 41, 0.8);
+}
+.cards_container.monthly .card:nth-child(4) {
+    background-color: rgba(0, 13, 41, 1.0);
+}
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 12px;
+    padding: 1px; /* Толщина рамки */
+    background: linear-gradient(to bottom, #F39F0D, #573700);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    z-index: -1; /* Позади контента */
+}
+.card-header img {
+    width: 40px;
+    margin-bottom: 10px;
+}
+.card-header p {
+    font-weight: 900;
+    line-height: 20px;
+}
+.card-body p {
+    color: rgba(255, 255, 255, 0.6);
+    margin: 5px 0;
+    font-size: 12px;
+    line-height: 16px;
+}
+.card-body .value {
+    font-size: 18px;
+    line-height: 22px;
+    color: #fff;
+    font-weight: 700;
+}
+.card-header, .card-body .value:not(:last-child) {
+    border-bottom: 1px solid #602D08;
+    margin-bottom: 10px; /* Задайте подходящий отступ */
+    padding-bottom: 10px; /* Чтобы не загораживался текст */
+}
+.title-block {
+    font-style: italic;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 120%;
+    margin-bottom: 24px;
+}
+.accordion__row {
+    margin-top: 60px;
+}
+.accordion {
+    background-color: rgba(255, 255, 255, 0.10);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    position: relative;
+    cursor: pointer;
+}
+.accordion__intro {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 56px;
+    padding: 30px 65px 30px 28px;
+    font-size: 20px;
+}
+.accordion__intro::after {
+    content: "\276F";
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #EDBE77;
+    transition: all 0.35s;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    color: #1B0909;
+}
+.accordion__content {
+    height: 0;
+    overflow: hidden;
+    transition: all 0.35s;
+    padding: 0 28px;
+}
+.accordion__content p {
+    max-width: 816px;
+    margin-bottom: 20px;
+}
+.accordion__active .accordion__content {
+    height: auto;
+}
+.accordion__active .accordion__intro p{
+    color: #EDBE77;
+}
+.accordion__active .accordion__intro::after {
+    transform: translateY(-50%) rotate(270deg);
+}
+@media (max-width: 1024px) {
+    .tabs {
+        gap: 18px;
+        margin-bottom: 32px;
+    }
+    .tab {
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .tab svg {
+        width: 20px;
+        height: auto;
+        margin-bottom: 0;
+    }
+    .tab:not(:last-child)::after {
+        margin-left: 18px;
+    }
+    .active .underline {
+        width: calc(100% - 16px - 2px);
+        bottom: -18px;
+    }
+    .tab_container .banner {
+        padding: 20px;
+        border-radius: 0;
+        min-height: 305px;
+    }
+    .cards_container {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 9px;
+    }
+}
+@media (max-width: 991px) {
+    .container_relative {
+        padding-inline: 15px;
+    }
+    .banner-hero_title {
+        font-size: 60px
+    }
+}
+@media (max-width: 768px) {
+    a {
+        text-decoration: none;
+    }
+    .page_wrap {
+        padding-top: 24px;
+    }
+    .banner-pretitle {
+        font-size: 20px;
+        line-height: 26px;
+    }
+    .banner-hero_title {
+        font-size: 40px;
+        line-height: 53px;
+    }
+    .banner-subtitle {
+        font-size: 30px;
+        line-height: 40px;
+        margin-bottom: 95px;
+    }
+    .banner .page_btn {
+        max-width: 141px;
+        font-size: 12px;
+        line-height: 18px;
+        
+    }
+    .banner .banner_lvl_img {
+        width: 66px;
+        height: auto;
+        top: 13px;
+        right: 12px;
+    }
+    .tab_container:nth-child(2) .banner {
+        background: url(https://alev-wordpress-prod.s3.amazonaws.com/uploads/2025/02/cashback_banner_m.jpg) center no-repeat;
+    }
+    .tab_container:nth-child(2) .banner .banner_img {
+        transform: none;
+        right: -70px;
+        width: 310px;
+        bottom: -53px;
+    }
+    .tab_container:nth-child(3) .banner {
+        background: url(https://alev-wordpress-prod.s3.amazonaws.com/uploads/2025/02/cashback_banner_m.jpg) center no-repeat;
+    }
+    .tab_container:nth-child(3) .banner .banner_img {
+        transform: none;
+        right: -71px;
+        width: 278px;
+        top: 29px;
+    }
+    .tab_container:nth-child(4) .banner {
+        background: url(https://alev-wordpress-prod.s3.amazonaws.com/uploads/2025/02/cashback_banner_m.jpg) center no-repeat;
+    }
+    .tab_container:nth-child(4) .banner .banner_img {
+        transform: none;
+        right: -42px;
+        width: 230px;
+        bottom: -54px;
+    }
+    .type_info .type_info_desc {
+        padding: 12px;
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .cards_container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 9px;
+    }
+    .cards_container.weekly {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 9px;
+    }
+    .cards_container.monthly {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 9px;
+    }
+    .card {
+        padding: 12px;
+    }
+    .accordion__row {
+        margin-top: 40px;
+    }
+    .accordion__intro {
+        font-size: 16px;
+        line-height: 20px;
+    }
+}
