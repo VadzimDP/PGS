@@ -6,7 +6,7 @@
   // calendar logic
 
   const initializeCalendarDays = () => {
-    const startDate = new Date('2025-02-23');
+    const startDate = new Date('2025-03-01');
     const currentDate = new Date();
     // const currentDate = new Date('2025-03-16');
     const timeDiff = currentDate - startDate;
