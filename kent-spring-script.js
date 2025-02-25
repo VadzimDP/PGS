@@ -8,15 +8,15 @@
   };
 
   const CIRCLE_IMAGES = {
-    PREV: 'https://kent-wordpress-test.s3.amazonaws.com/uploads/2025/02/circle-prev-day.png',
-    CURRENT: 'https://kent-wordpress-test.s3.amazonaws.com/uploads/2025/02/circle-current-day.png',
-    FUTURE: 'https://kent-wordpress-test.s3.amazonaws.com/uploads/2025/02/circle-future-day.png',
+    PREV: 'https://kent-wordpress-prod.s3.amazonaws.com/uploads/2025/02/circle-prev-day.png',
+    CURRENT: 'https://kent-wordpress-prod.s3.amazonaws.com/uploads/2025/02/circle-current-day.png',
+    FUTURE: 'https://kent-wordpress-prod.s3.amazonaws.com/uploads/2025/02/circle-future-day.png',
   };
 
   const CIRCLE_LIGHT_IMAGE =
-    'https://kent-wordpress-test.s3.amazonaws.com/uploads/2025/02/circle-light-current-day.png';
+    'https://kent-wordpress-prod.s3.amazonaws.com/uploads/2025/02/circle-light-current-day.png';
   const BLUR_CIRCLES_IMAGE =
-    'https://kent-wordpress-test.s3.amazonaws.com/uploads/2025/02/blur-circles.png';
+    'https://kent-wordpress-prod.s3.amazonaws.com/uploads/2025/02/blur-circles.png';
   const BLUR_WIDTH = window.matchMedia('(max-width: 639px)').matches ? 78 : 112;
   const BLUR_HEIGHT = window.matchMedia('(max-width: 639px)').matches ? 72 : 102;
 
@@ -164,7 +164,7 @@
 
   // Calendar initialization
   const initializeCalendarDays = () => {
-    const startDate = new Date('2025-02-24');
+    const startDate = new Date('2025-02-23');
     const currentDate = new Date();
     let timeDiff = currentDate - startDate;
     let originalDaysPassed = timeDiff >= 0 ? Math.floor(timeDiff / (1000 * 3600 * 24)) + 1 : 0;
