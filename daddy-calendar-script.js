@@ -7,20 +7,20 @@
     FUTURE: 'circle-future-day',
   }; 
   const CIRCLE_IMAGES = {
-    PREV: 'https://daddy-wordpress-test.s3.amazonaws.com/uploads/2025/10/circle-prev-day.png',
-    CURRENT: 'https://daddy-wordpress-test.s3.amazonaws.com/uploads/2025/10/circle-current-day.png',
-    FUTURE: 'https://daddy-wordpress-test.s3.amazonaws.com/uploads/2025/10/circle-future-day.png',
+    PREV: 'https://r7casino-wordpress-test.s3.amazonaws.com/uploads/2025/10/circle-prev-day.png',
+    CURRENT: 'https://r7casino-wordpress-test.s3.amazonaws.com/uploads/2025/10/circle-current-day.png',
+    FUTURE: 'https://r7casino-wordpress-test.s3.amazonaws.com/uploads/2025/10/circle-future-day.png',
   }; 
   const CIRCLE_LIGHT_IMAGE =
-    'https://daddy-wordpress-test.s3.amazonaws.com/uploads/2025/10/circle-light-current-day.png';
+    'https://r7casino-wordpress-test.s3.amazonaws.com/uploads/2025/10/circle-light-current-day.png';
   const BLUR_CIRCLES_IMAGE =
-    'https://kent-wordpress-prod.s3.amazonaws.com/uploads/2025/02/blur-circles.png';
-  const BLUR_WIDTH = window.matchMedia('(max-width: 639px)').matches ? 78 : 112;
-  const BLUR_HEIGHT = window.matchMedia('(max-width: 639px)').matches ? 72 : 102; 
-  const CIRCLE_SIZE = window.matchMedia('(max-width: 639px)').matches ? 66 : 100;
-  const LIGHT_CIRCLE_WIDTH = window.matchMedia('(max-width: 639px)').matches ? 66 : 120;
-  const LIGHT_CIRCLE_HEIGHT = window.matchMedia('(max-width: 639px)').matches ? 66 : 120;
-  const LIGHT_CIRCLE_OFFSET_Y = window.matchMedia('(max-width: 639px)').matches ? 1 : 5; 
+    'https://r7casino-wordpress-test.s3.amazonaws.com/uploads/2025/10/blur-circles.png';
+  const BLUR_WIDTH = window.matchMedia('(max-width: 768px)').matches ? 78 : 112;
+  const BLUR_HEIGHT = window.matchMedia('(max-width: 768px)').matches ? 72 : 102; 
+  const CIRCLE_SIZE = window.matchMedia('(max-width: 768px)').matches ? 54 : 100;
+  const LIGHT_CIRCLE_WIDTH = window.matchMedia('(max-width: 768px)').matches ? 82 : 107;
+  const LIGHT_CIRCLE_HEIGHT = window.matchMedia('(max-width: 768px)').matches ? 82 : 107;
+  const LIGHT_CIRCLE_OFFSET_Y = window.matchMedia('(max-width: 768px)').matches ? 1 : 1; 
   // Helper functions
   const createImage = className => {
     return document.createElementNS('http://www.w3.org/2000/svg', 'image');
@@ -32,9 +32,9 @@
     const image = document.createElementNS('http://www.w3.org/2000/svg', 'image');
     const group = document.createElementNS('http://www.w3.org/2000/svg', 'g'); 
     clipPath.setAttributeNS(null, 'id', clipId);
-    circle.setAttributeNS(null, 'cx', CIRCLE_SIZE / 1.9);
-    circle.setAttributeNS(null, 'cy', CIRCLE_SIZE / 1.9);
-    circle.setAttributeNS(null, 'r', CIRCLE_SIZE / 1.9); 
+    circle.setAttributeNS(null, 'cx', CIRCLE_SIZE / 2);
+    circle.setAttributeNS(null, 'cy', CIRCLE_SIZE /2);
+    circle.setAttributeNS(null, 'r', CIRCLE_SIZE / 2); 
     image.setAttributeNS(null, 'href', CIRCLE_IMAGES[dayType]);
     image.setAttributeNS(null, 'width', CIRCLE_SIZE);
     image.setAttributeNS(null, 'height', CIRCLE_SIZE);
@@ -49,8 +49,8 @@
     const path = gElement.querySelector('path');
     if (!path) return null; 
     const bbox = path.getBBox();
-    const mobileOffsetY = window.matchMedia('(max-width: 639px)').matches ? -1 : -1;
-    const mobileOffsetX = window.matchMedia('(max-width: 639px)').matches ? -1 : -2; 
+    const mobileOffsetY = window.matchMedia('(max-width: 768px)').matches ? 0 : -1;
+    const mobileOffsetX = window.matchMedia('(max-width: 768px)').matches ? 0 : -2; 
     return {
       x: bbox.x + (bbox.width - CIRCLE_SIZE) / 2 + mobileOffsetX,
       y: bbox.y + (bbox.height - CIRCLE_SIZE) / 2 + mobileOffsetY,
@@ -138,7 +138,7 @@
   }); 
   // Calendar initialization
   const initializeCalendarDays = () => {
-    const startDate = new Date('2025-09-15');
+    const startDate = new Date('2025-10-05');
     const currentDate = new Date();
     let timeDiff = currentDate - startDate;
     let originalDaysPassed = timeDiff >= 0 ? Math.floor(timeDiff / (1000 * 3600 * 24)) + 1 : 0; 
